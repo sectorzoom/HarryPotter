@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${student.name} + ' Details'"></title>
+</head>
+<body>
+<h1 th:text="${student.name}"></h1>
+<p>House: <a th:href="@{'/house/' + ${student.house.name}}" th:text="${student.house.name}"></a></p>
+<p>Patronus: <span th:text="${student.patronus}"></span></p>
+
+</body>
+</html>
