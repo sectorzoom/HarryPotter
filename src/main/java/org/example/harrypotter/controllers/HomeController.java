@@ -4,7 +4,6 @@ import org.example.harrypotter.entities.House;
 import org.example.harrypotter.entities.Student;
 import org.example.harrypotter.services.HouseService;
 import org.example.harrypotter.services.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +14,13 @@ import java.util.Random;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private HouseService houseService;
+    private final HouseService houseService;
+    private final StudentService studentService;
 
-    @Autowired
-    private StudentService studentService;
+    public HomeController(HouseService houseService, StudentService studentService) {
+        this.houseService = houseService;
+        this.studentService = studentService;
+    }
 
     @GetMapping("/")
     public String home(Model model) {

@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class HouseServiceImplementation implements HouseService {
 
-    @Autowired
     private final HouseRepository houseRepository;
 
     public HouseServiceImplementation(HouseRepository houseRepository) {

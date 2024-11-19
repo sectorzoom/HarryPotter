@@ -2,7 +2,6 @@ package org.example.harrypotter.controllers;
 
 import org.example.harrypotter.entities.Student;
 import org.example.harrypotter.services.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,11 @@ import java.util.List;
 @Controller
 public class StudentController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @GetMapping("/student")
     public String getStudentDetails(@RequestParam String name, Model model) {

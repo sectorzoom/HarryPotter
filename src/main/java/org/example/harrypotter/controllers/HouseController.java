@@ -2,7 +2,6 @@ package org.example.harrypotter.controllers;
 
 import org.example.harrypotter.entities.House;
 import org.example.harrypotter.services.HouseService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,11 @@ import java.util.List;
 @Controller
 public class HouseController {
 
-    @Autowired
-    private HouseService houseService;
+    private final HouseService houseService;
+
+    public HouseController(HouseService houseService) {
+        this.houseService = houseService;
+    }
 
     @GetMapping("/houses")
     public String getAllHouses(Model model) {
