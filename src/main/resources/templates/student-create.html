@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Añadir Estudiante</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Añadir Estudiante a <span th:text="${houseName}"></span></h1>
+
+<form th:action="@{'/house/createStudent/' + ${houseName}}" th:object="${student}" method="post">
+  <label for="name">Nombre:</label>
+  <input type="text" id="name" name="name" th:field="*{name}" required />
+  <br />
+
+  <label for="patronus">Patronus:</label>
+  <input type="text" id="patronus" name="patronus" th:field="*{patronus}" />
+  <br />
+
+  <button type="submit">Añadir Estudiante</button>
+</form>
+
+<p>
+  Volver a la casa:
+  <a th:href="@{'/house/' + ${houseName}}">Detalles de la Casa</a>
+</p>
+</body>
+</html>

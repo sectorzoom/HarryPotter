@@ -1,12 +1,12 @@
 package org.example.harrypotter.repositories;
 
 import lombok.Getter;
-import org.example.harrypotter.entities.House;
 import org.example.harrypotter.entities.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Repository
@@ -60,4 +60,15 @@ public class StudentRepository {
             }
         }
     }
+
+    public void saveAll(List<Student> updatedStudents) {
+        for (Student student : updatedStudents) {
+            for (int i = 0; i < students.size(); i++) {
+                if (students.get(i).getName().equals(student.getName())) {
+                    students.set(i, student);
+                }
+            }
+        }
+    }
+
 }

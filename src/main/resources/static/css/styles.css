@@ -1,0 +1,197 @@
+/* styles.css */
+
+/* Fuentes mágicas */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap');
+
+/* Contenedor del encabezado */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #4a2a0e;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagen del escudo */
+.header-logo {
+    height: 150px; /* Ajusta la altura según necesites */
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Título */
+header h1 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 2.5rem;
+    color: #f7d694;
+    text-shadow: 2px 2px #2d2d2d;
+}
+.header-logo {
+    animation: hover-glow 2s infinite alternate;
+}
+
+@keyframes hover-glow {
+    from {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px #f7d694);
+    }
+    to {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 20px #f7d694);
+    }
+}
+
+
+
+/* Estilo general */
+body {
+    font-family: 'Almendra SC', serif;
+    background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+    color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado principal */
+header {
+    background: #4a2a0e; /* Color marrón oscuro inspirado en el Gran Salón */
+    color: #f7d694;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+
+/* Tablas */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #f7f3d7; /* Color pergamino */
+    border: 2px solid #4a2a0e;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #4a2a0e;
+}
+
+th {
+    background: #814c27; /* Marrón oscuro */
+    color: #f7f3d7;
+    font-size: 1.2rem;
+}
+
+td {
+    color: #4a2a0e;
+    font-size: 1rem;
+}
+
+/* Botones */
+a {
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
+button, a.button {
+    background: #814c27;
+    color: #f7f3d7;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+button:hover, a.button:hover {
+    background: #b57338; /* Color dorado */
+}
+
+/* Enlaces */
+a {
+    color: #b57338;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #f7d694;
+}
+
+/* Footer */
+footer {
+    background: #4a2a0e;
+    color: #f7d694;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Encabezados */
+h1, h2, h3 {
+    color: #f7d694;
+    text-shadow: 2px 2px #4a2a0e;
+    margin: 10px 0;
+}
+
+/* Formularios */
+form {
+    width: 80%;
+    margin: 20px auto;
+    background: #f7f3d7;
+    padding: 20px;
+    border: 2px solid #4a2a0e;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    font-weight: bold;
+    color: #4a2a0e;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #4a2a0e;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input:focus, select:focus {
+    border-color: #b57338;
+    outline: none;
+}
+
+/* Efectos mágicos */
+header, button, a.button {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #f7d694;
+    }
+    to {
+        box-shadow: 0 0 20px #f7d694;
+    }
+}

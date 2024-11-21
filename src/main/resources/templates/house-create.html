@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Casa</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1>Crear Nueva Casa</h1>
+</header>
+<form th:action="@{/houses/create}" th:object="${house}" method="post">
+    <label for="name">Nombre de la Casa:</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required>
+    <br>
+    <label for="mascot">Mascota:</label>
+    <input type="text" id="mascot" name="mascot" th:field="*{mascot}" required>
+    <br>
+    <label for="founder">Fundador:</label>
+    <input type="text" id="founder" name="founder" th:field="*{founder}" required>
+    <br>
+    <button type="submit">Crear Casa</button>
+</form>
+<footer>
+    <a th:href="@{/houses}">Volver al Listado de Casas</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Eliminar Casa</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+  <h1>Eliminar Casa: <span th:text="${house.name}">Nombre de la Casa</span></h1>
+</header>
+<p>¿Estás seguro de que quieres eliminar esta casa?</p>
+<form th:action="@{/house/delete/{name}(name=${house.name})}" method="post">
+  <button type="submit">Eliminar</button>
+  <a th:href="@{/houses}">Cancelar</a>
+</form>
+</body>
+</html>

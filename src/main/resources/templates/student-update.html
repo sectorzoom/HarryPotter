@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Actualizar Estudiante</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+  <h1>Actualizar Estudiante</h1>
+</header>
+<form th:action="@{'/student/update/' + ${student.name}}" th:object="${student}" method="post">
+  <label for="name">Nombre del Estudiante:</label>
+  <input type="text" id="name" name="name" th:field="*{name}" required>
+  <br>
+  <label for="house">Casa:</label>
+  <select id="house" name="houseName" required>
+    <option th:each="house : ${houses}" th:value="${house.name}" th:text="${house.name}"
+            th:selected="${student.house.name == house.name}"></option>
+  </select>
+  <br>
+  <label for="patronus">Patronus:</label>
+  <input type="text" id="patronus" name="patronus" th:field="*{patronus}" required>
+  <br>
+  <button type="submit">Guardar Cambios</button>
+</form>
+
+<footer>
+  <a th:href="@{'/house/' + ${student.house.name}}">Volver a la Casa</a>
+</footer>
+</body>
+</html>

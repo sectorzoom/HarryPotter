@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Actualizar Casa</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+  <h1 th:text="'Actualizar Casa: ' + ${house.name}"></h1>
+</header>
+<form th:action="@{'/house/update/' + ${house.name}}" th:object="${house}" method="post">
+  <label for="name">Nombre de la Casa:</label>
+  <input type="text" id="name" name="name" th:field="*{name}" required>
+  <br>
+  <label for="mascot">Mascota:</label>
+  <input type="text" id="mascot" name="mascot" th:field="*{mascot}" required>
+  <br>
+  <label for="founder">Fundador:</label>
+  <input type="text" id="founder" name="founder" th:field="*{founder}" required>
+  <br>
+  <button type="submit">Guardar Cambios</button>
+</form>
+<footer>
+  <a th:href="@{/houses}">Volver al Listado de Casas</a>
+</footer>
+</body>
+</html>

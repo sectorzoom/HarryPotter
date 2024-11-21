@@ -2,12 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Harry Potter Home</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1>Bienvenido a la Web de Harry Potter</h1>
-<p>Casa aleatoria: <a th:href="@{/house/{name}(name=${randomHouse.name})}" th:text="${randomHouse.name}"></a></p>
-<p>Estudiante aleatorio: <a th:href="@{/student(name=${randomStudent.name})}" th:text="${randomStudent.name}"></a></p>
-<p>Acceder a las 4 Casas: <a th:href="@{'/houses'}">Ver Casas</a></p>
+<header>
+  <div class="header-container">
+    <img src="/images/escudoHogwarts.png" alt="Hogwarts Logo" class="header-logo">
+    <h1>Bienvenido a la Web de Harry Potter</h1>
+  </div>
+</header>
+<main>
+  <section>
+    <h2>Acceso rápido</h2>
+    <p>Casa aleatoria:
+      <a th:href="@{/house/{name}(name=${randomHouse.name})}" th:text="${randomHouse.name}"></a>
+    </p>
+    <p>Estudiante aleatorio:
+      <a th:href="@{/student/update/{name}(name=${randomStudent.name})}" th:text="${randomStudent.name}"></a>
+    </p>
+    <p>
+      Acceder al listado de las 4 Casas:
+      <a th:href="@{/houses}">Ver Casas</a>
+    </p>
+  </section>
 
+  <section>
+    <h2>Gestión de Casas</h2>
+    <p>
+      Crear una nueva casa:
+      <a th:href="@{/houses/create}">Añadir Casa</a>
+    </p>
+    <p>
+      Modificar una casa existente (elige en el listado):
+      <a th:href="@{/houses}">Modificar Casa</a>
+    </p>
+    <p>
+      Eliminar una casa existente (elige en el listado):
+      <a th:href="@{/houses}">Eliminar Casa</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Gestión de Estudiantes</h2>
+    <p>
+      Crear un estudiante en una casa específica:
+      <a th:href="@{/houses}">Seleccionar Casa</a>
+    </p>
+    <p>
+      Modificar un estudiante existente:
+      <a th:href="@{/students}">Listado de Estudiantes</a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024 Hogwarts School of Witchcraft and Wizardry</p>
+</footer>
 </body>
 </html>

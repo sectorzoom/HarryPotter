@@ -2,11 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title th:text="${student.name} + ' Details'"></title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1 th:text="${student.name}"></h1>
-<p>House: <a th:href="@{'/house/' + ${student.house.name}}" th:text="${student.house.name}"></a></p>
-<p>Patronus: <span th:text="${student.patronus}"></span></p>
+<header>
+  <h1 th:text="${student.name}">Nombre del Estudiante</h1>
+</header>
 
+<main>
+  <section>
+    <h2>Detalles del Estudiante</h2>
+    <p>Casa:
+      <a th:href="@{'/house/' + ${student.house.name}}" th:text="${student.house.name}">Nombre de la Casa</a>
+    </p>
+    <p>Patronus: <span th:text="${student.patronus}">Patronus del Estudiante</span></p>
+  </section>
+
+  <section>
+    <h2>Gestión del Estudiante</h2>
+    <p>
+      <a th:href="@{'/student/update/' + ${student.name}}">Modificar Estudiante</a>
+    </p>
+    <p>
+      <a th:href="@{'/student/delete/' + ${student.name}}">Eliminar Estudiante</a>
+    </p>
+  </section>
+
+  <p>
+    Volver a la casa del estudiante:
+    <a th:href="@{'/house/' + ${student.house.name}}">Volver a la Casa</a>
+  </p>
+  <p>
+    Volver al inicio:
+    <a th:href="@{/}">Inicio</a>
+  </p>
+</main>
+
+<footer>
+  <p>© 2024 Hogwarts School of Witchcraft and Wizardry</p>
+</footer>
 </body>
 </html>

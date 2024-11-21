@@ -2,27 +2,56 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Houses</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1>Houses</h1>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Mascot</th>
-    <th>Founder</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="house : ${houses}">
-    <td th:text="${house.name}"></td>
-    <td th:text="${house.mascot}"></td>
-    <td th:text="${house.founder}"></td>
-    <td><a th:href="@{'/house/' + ${house.name}}">View Details</a></td>
-  </tr>
-  </tbody>
-</table>
-<p>Volver atrás: <a th:href="@{'/'}">Atrás</a></p>
+<header>
+  <h1>Listado de Casas</h1>
+</header>
+
+<main>
+  <section>
+    <h2>Casas en Hogwarts</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Mascota</th>
+        <th>Fundador</th>
+        <th>Detalles</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="house : ${houses}">
+        <td th:text="${house.name}"></td>
+        <td th:text="${house.mascot}"></td>
+        <td th:text="${house.founder}"></td>
+        <td><a th:href="@{'/house/' + ${house.name}}">Ver Detalles</a></td>
+        <td><a th:href="@{'/house/update/' + ${house.name}}">Modificar</a></td>
+        <td><a th:href="@{'/house/delete/' + ${house.name}}">Eliminar</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Gestión de Casas</h2>
+    <p>
+      Crear una nueva casa:
+      <a th:href="@{/houses/create}">Añadir Casa</a>
+    </p>
+  </section>
+
+  <p>
+    Volver al inicio:
+    <a th:href="@{/}">Inicio</a>
+  </p>
+</main>
+
+<footer>
+  <p>© 2024 Hogwarts School of Witchcraft and Wizardry</p>
+</footer>
 </body>
 </html>

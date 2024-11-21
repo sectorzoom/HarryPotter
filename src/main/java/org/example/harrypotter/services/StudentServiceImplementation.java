@@ -2,7 +2,6 @@ package org.example.harrypotter.services;
 
 import org.example.harrypotter.entities.Student;
 import org.example.harrypotter.repositories.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,7 +36,18 @@ public class StudentServiceImplementation implements StudentService {
     }
 
     @Override
-    public void updateStudent(Student student, String name){
-        studentRepository.updateStudent(student, name);
+    public void updateStudent(Student student, String name) {
+        studentRepository.updateStudent(student, name); // Llama directamente al método del repositorio
     }
+
+    @Override
+    public void deleteStudent(String name) {
+        studentRepository.getStudents().removeIf(student -> student.getName().equals(name));
+    }
+    @Override
+    public List<Student> getAllStudents() {
+        return studentRepository.getStudents();
+    }
+
+
 }
