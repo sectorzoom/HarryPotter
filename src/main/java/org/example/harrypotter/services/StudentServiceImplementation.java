@@ -30,4 +30,14 @@ public class StudentServiceImplementation implements StudentService {
     public List<Student> getStudentsByHouse(String house) {
         return studentRepository.getStudentsByHouse(house);
     }
+
+    @Override
+    public void addStudent(Student student) {
+        studentRepository.addStudent(student);
+    }
+
+    @Override
+    public void updateStudent(Student student, String name){
+        studentRepository.updateStudent(student, name);
+    }
 }
