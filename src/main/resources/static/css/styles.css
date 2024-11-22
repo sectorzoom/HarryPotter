@@ -1,6 +1,4 @@
-/* styles.css */
-
-/* Fuentes mágicas */
+/* Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap');
 
@@ -18,8 +16,8 @@
 
 /* Imagen del escudo */
 .header-logo {
-    height: 150px; /* Ajusta la altura según necesites */
-    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    height: 150px;
+    margin-bottom: 10px;
 }
 
 /* Título */
@@ -32,7 +30,6 @@ header h1 {
 .header-logo {
     animation: hover-glow 2s infinite alternate;
 }
-
 @keyframes hover-glow {
     from {
         transform: scale(1);
@@ -43,8 +40,6 @@ header h1 {
         filter: drop-shadow(0 0 20px #f7d694);
     }
 }
-
-
 
 /* Estilo general */
 body {
@@ -57,7 +52,7 @@ body {
 
 /* Encabezado principal */
 header {
-    background: #4a2a0e; /* Color marrón oscuro inspirado en el Gran Salón */
+    background: #4a2a0e;
     color: #f7d694;
     text-align: center;
     padding: 20px 0;
@@ -71,14 +66,12 @@ header h1 {
     letter-spacing: 3px;
 }
 
-
-
 /* Tablas */
 table {
     width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
-    background: #f7f3d7; /* Color pergamino */
+    background: #f7f3d7;
     border: 2px solid #4a2a0e;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
@@ -90,7 +83,7 @@ th, td {
 }
 
 th {
-    background: #814c27; /* Marrón oscuro */
+    background: #814c27;
     color: #f7f3d7;
     font-size: 1.2rem;
 }
@@ -120,7 +113,7 @@ button, a.button {
 }
 
 button:hover, a.button:hover {
-    background: #b57338; /* Color dorado */
+    background: #b57338;
 }
 
 /* Enlaces */

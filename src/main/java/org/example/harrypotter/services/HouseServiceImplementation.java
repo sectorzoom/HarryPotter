@@ -43,13 +43,11 @@ public class HouseServiceImplementation implements HouseService {
     public void updateHouse(String oldName, House house) {
         // Actualiza la casa en el repositorio
         houseRepository.updateHouse(oldName, house);
-
         // Actualiza a los estudiantes asociados
         List<Student> students = studentRepository.getStudentsByHouse(oldName);
         for (Student student : students) {
             student.getHouse().setName(house.getName());
         }
-
         // Guarda los estudiantes actualizados (si es necesario)
         studentRepository.saveAll(students);
     }

@@ -49,20 +49,14 @@ public class HouseController {
     @GetMapping("/house/update/{name}")
     public String updateHouse(@PathVariable String name, Model model) {
         House house = houseService.getHouseByName(name);
-        if (house == null) {
-            throw new IllegalArgumentException("House not found");
-        }
         model.addAttribute("house", house); // Pasar el objeto House al modelo
-        return "house-update"; // Renderiza el template house-update.html
+        return "house-update";
     }
-
     @PostMapping("/house/update/{name}")
     public String updateHouse(@PathVariable String name, @ModelAttribute House house) {
         houseService.updateHouse(name, house); // Actualiza la casa y los estudiantes asociados
         return "redirect:/houses";
     }
-
-
 
     @GetMapping("/house/delete/{name}")
     public String deleteHouse(@PathVariable String name) {

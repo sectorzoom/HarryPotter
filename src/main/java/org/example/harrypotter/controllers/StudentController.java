@@ -25,7 +25,7 @@ public class StudentController {
     @GetMapping("/student")
     public String getStudentDetails(@RequestParam String name, Model model) {
         model.addAttribute("student", studentService.getStudentByName(name));
-        return "student-details"; // Thymeleaf template "student-details.html"
+        return "student-details";
     }
 
     @GetMapping("/house/{name}/students")
@@ -33,7 +33,7 @@ public class StudentController {
         List<Student> students = studentService.getStudentsByHouse(name);
         model.addAttribute("students", students);
         model.addAttribute("houseName", name);
-        return "students-by-house"; // Thymeleaf template "students-by-house.html"
+        return "students-by-house";
     }
 
     @GetMapping("/house/createStudent/{name}")
@@ -46,21 +46,13 @@ public class StudentController {
     public String createStudent(@PathVariable String name, @ModelAttribute Student student) {
         // Obtén la casa basada en el nombre de la URL
         House house = houseService.getHouseByName(name);
-        if (house == null) {
-            throw new IllegalArgumentException("House not found");
-        }
-
         // Asocia la casa al estudiante
         student.setHouse(house);
-
         // Añade el estudiante al repositorio
         studentService.addStudent(student);
-
         // Redirige al listado de estudiantes de la casa
         return "redirect:/house/" + name + "/students";
     }
-
-
 
     @GetMapping("/student/update/{name}")
     public String updateStudent(@PathVariable String name, Model model) {
@@ -73,42 +65,34 @@ public class StudentController {
     public String updateStudent(@PathVariable String name, @ModelAttribute Student student, @RequestParam String houseName) {
         // Obtén el estudiante existente
         Student existingStudent = studentService.getStudentByName(name);
-
         // Actualiza los campos editables
         existingStudent.setName(student.getName()); // Actualiza el nombre del estudiante
-
         // Asocia la nueva casa
         House house = houseService.getHouseByName(houseName); // Busca la casa por nombre
         existingStudent.setHouse(house); // Asocia la casa al estudiante
-
         // Actualiza el patronus
         existingStudent.setPatronus(student.getPatronus());
-
         // Guarda los cambios
         studentService.updateStudent(existingStudent, name);
-
-        // Redirige a los detalles del estudiante actualizado
         return "redirect:/student/" + student.getName();
     }
+
     @GetMapping("/students")
     public String listAllStudents(Model model) {
         List<Student> students = studentService.getAllStudents();
-        model.addAttribute("students", students); // Pasar la lista de estudiantes al modelo
-        return "students"; // Renderiza el template students.html
+        model.addAttribute("students", students);
+        return "students";
     }
 
     @GetMapping("/student/{name}")
     public String getStudentDetailsByName(@PathVariable String name, Model model) {
         model.addAttribute("student", studentService.getStudentByName(name));
-        return "student-details"; // Thymeleaf template para mostrar los detalles
+        return "student-details";
     }
 
     @GetMapping("/student/delete/{name}")
     public String deleteStudent(@PathVariable String name) {
         Student student = studentService.getStudentByName(name);
-        if (student == null) {
-            throw new IllegalArgumentException("Student not found");
-        }
         studentService.deleteStudent(name);
         return "redirect:/house/" + student.getHouse().getName() + "/students";
     }
