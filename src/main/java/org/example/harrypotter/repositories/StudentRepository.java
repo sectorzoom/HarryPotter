@@ -29,12 +29,10 @@ public class StudentRepository {
     }
 
     public Student getStudent(String name) {
-        for (Student student : students) {
-            if (student.getName().equals(name)) {
-                return student;
-            }
-        }
-        return null;
+        return students.stream()
+                .filter(student -> student.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     public List<Student> getStudentsByHouse(String houseName) {

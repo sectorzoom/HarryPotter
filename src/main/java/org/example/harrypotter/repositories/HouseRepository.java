@@ -20,12 +20,10 @@ public class HouseRepository {
     }
 
     public House getHouse(String name) {
-        for (House house : houses) {
-            if (house.getName().equals(name)) {
-                return house;
-            }
-        }
-        return null;
+        return houses.stream()
+                .filter(house -> house.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     public void addHouse(House house) {
