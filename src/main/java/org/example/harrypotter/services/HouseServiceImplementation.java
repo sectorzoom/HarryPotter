@@ -44,12 +44,9 @@ public class HouseServiceImplementation implements HouseService {
         // Actualiza la casa en el repositorio
         houseRepository.updateHouse(oldName, house);
         // Actualiza a los estudiantes asociados
-        List<Student> students = studentRepository.getStudentsByHouse(oldName);
-        for (Student student : students) {
-            student.getHouse().setName(house.getName());
-        }
-        // Guarda los estudiantes actualizados (si es necesario)
-        studentRepository.saveAll(students);
+        studentRepository.getStudents().stream()
+                .filter(student -> student.getHouse().getName().equals(oldName))
+                .forEach(student -> student.setHouse(house));
     }
 
     @Override
